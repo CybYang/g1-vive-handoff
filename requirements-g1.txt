@@ -1,0 +1,18 @@
+# G1 PC2 deployment: Ubuntu 22.04, Python 3.10, aarch64.
+#
+# Install these in the package-local .venv.  Do not install them into the
+# existing g1ik environment: the exact NumPy/Pinocchio versions used here are
+# intentionally isolated from the arm IK controller.
+numpy==2.2.6
+scipy==1.15.3
+torch==2.13.0
+nlopt==2.11.0
+pin==4.1.0
+pytransform3d==3.16.0
+anytree==2.13.0
+PyYAML==6.0.3
+lxml==6.1.1
+six==1.17.0
+pyserial==3.5
+pytest==8.4.2
+hatchling==1.32.0

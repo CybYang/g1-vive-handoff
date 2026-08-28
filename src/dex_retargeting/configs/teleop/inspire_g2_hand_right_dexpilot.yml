@@ -1,0 +1,28 @@
+retargeting:
+  type: DexPilot
+  urdf_path: ../../../custom_assets/inspire_g2_hand/inspire_g2_hand_right.urdf
+
+  target_joint_names:
+    - right_thumb_yaw_joint
+    - right_thumb_mcp_joint
+    - right_thumb_dip_joint
+    - right_index_yaw_joint
+    - right_index_mcp_joint
+    - right_index_pip_joint
+    - right_middle_yaw_joint
+    - right_middle_mcp_joint
+    - right_middle_pip_joint
+    - right_ring_mcp_joint
+    - right_ring_pip_joint
+    - right_pinky_mcp_joint
+    - right_pinky_pip_joint
+  wrist_link_name: right_hand_palm
+  finger_tip_link_names:
+    - right_thumb_force_sensor
+    - right_index_force_sensor
+    - right_middle_force_sensor
+    - right_ring_force_sensor
+    - right_pinky_force_sensor
+
+  scaling_factor: 1.15
+  low_pass_alpha: 0.2

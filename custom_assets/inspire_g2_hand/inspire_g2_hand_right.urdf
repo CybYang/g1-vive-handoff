@@ -1,0 +1,778 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="RH5DG2_R">
+  <link name="right_hand_base">
+    <inertial>
+      <origin xyz="0.000590324230515735 -4.41066235895571E-08 0.018658168492136" rpy="0 0 0" />
+      <mass value="0.0816272765426702" />
+      <inertia ixx="2.75104686550082E-05" ixy="-4.85912163791786E-11" ixz="3.17186486652321E-08" iyy="2.64222243265588E-05" iyz="1.09459930565619E-11" izz="3.6293548175617E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_hand_base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_hand_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_hand_palm">
+    <inertial>
+      <origin xyz="0.00507125568670492 0.000620017221916229 0.0956109997992984" rpy="0 0 0" />
+      <mass value="0.261109888918733" />
+      <inertia ixx="0.000301182814598395" ixy="3.17995911128021E-06" ixz="-2.1510224496854E-05" iyy="0.000238695593099295" iyz="-2.01056810911847E-06" izz="0.000101825568194148" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_hand_palm.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_hand_palm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hand_palm_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="right_hand_base" />
+    <child link="right_hand_palm" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_thumb_yaw">
+    <inertial>
+      <origin xyz="0.000851897283662761 0.00483571971174276 -0.00574141841695078" rpy="0 0 0" />
+      <mass value="0.00481735450280768" />
+      <inertia ixx="1.77883416432453E-07" ixy="-1.48523487903374E-08" ixz="-1.10223746267111E-09" iyy="9.58659671745105E-08" iyz="5.54372476859044E-11" izz="1.65931218249892E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_yaw.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_yaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_thumb_yaw_joint" type="revolute">
+    <origin xyz="0.021 0.021699 0.07225" rpy="0 0 0" />
+    <parent link="right_hand_palm" />
+    <child link="right_thumb_yaw" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.9198622" effort="1" velocity="2" />
+  </joint>
+  <link name="right_thumb_mcp">
+    <inertial>
+      <origin xyz="0.0251946125741523 0.00470162547176872 -0.00721129474222341" rpy="0 0 0" />
+      <mass value="0.041756071151766" />
+      <inertia ixx="4.59979341745295E-06" ixy="-1.45470106880432E-06" ixz="5.58870630907465E-09" iyy="6.84088254134631E-06" iyz="6.02428036010552E-09" izz="8.65411062665035E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_mcp.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_mcp.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_thumb_mcp_joint" type="revolute">
+    <origin xyz="0.0084186 0.010193 -0.01022" rpy="1.7453 0 1.3963" />
+    <parent link="right_thumb_yaw" />
+    <child link="right_thumb_mcp" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="0.6108652" effort="1" velocity="2" />
+  </joint>
+  <link name="right_thumb_pip">
+    <inertial>
+      <origin xyz="0.019640864576423 0.00242395573987954 -0.0109191426787671" rpy="0 0 0" />
+      <mass value="0.0413809633402248" />
+      <inertia ixx="4.96850464966812E-06" ixy="-1.31907241627235E-06" ixz="8.88959993924884E-09" iyy="6.85457643250907E-06" iyz="4.37339590314179E-09" izz="8.67807228569467E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_pip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_pip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_thumb_pip_joint" type="revolute">
+    <origin xyz="0.043727 0.01749 0.0036" rpy="0 0 0" />
+    <parent link="right_thumb_mcp" />
+    <child link="right_thumb_pip" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="1.041888" effort="1" velocity="2" />
+    <mimic joint="right_thumb_mcp_joint" multiplier="1.0853" offset="0" />
+  </joint>
+  <link name="right_thumb_dip">
+    <inertial>
+      <origin xyz="0.0129223705541452 -0.00448868514595851 -0.00799774428292964" rpy="0 0 0" />
+      <mass value="0.00737636136031025" />
+      <inertia ixx="4.78965075360936E-07" ixy="-3.84624380628832E-08" ixz="-9.99847610195398E-11" iyy="8.07508502456021E-07" iyz="-7.9139405536934E-11" izz="8.31353144341822E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_dip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_dip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_thumb_dip_joint" type="revolute">
+    <origin xyz="0.036427 0.019902 -0.0028" rpy="0 0 0" />
+    <parent link="right_thumb_pip" />
+    <child link="right_thumb_dip" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="0.9424778" effort="1" velocity="2" />
+  </joint>
+  <link name="right_thumb_force_sensor">
+    <inertial>
+      <origin xyz="1.49917001178567E-05 -0.0056326428291604 -0.00559871672954898" rpy="0 0 0" />
+      <mass value="0.000821544127385049" />
+      <inertia ixx="3.90582129317658E-08" ixy="-1.27320386335071E-11" ixz="1.98327270303787E-12" iyy="1.76550149921096E-08" iyz="-9.02511439101503E-09" izz="4.9402644264187E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_force_sensor.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_thumb_force_sensor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_thumb_force_sensor_joint" type="fixed">
+    <origin xyz="0.025343 0.0072822 -0.0079999" rpy="-1.2546 -1.5705 -0.4908" />
+    <parent link="right_thumb_dip" />
+    <child link="right_thumb_force_sensor" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_index_yaw">
+    <inertial>
+      <origin xyz="0 -6.93889390390723E-18 5.20417042793042E-18" rpy="0 0 0" />
+      <mass value="0.00153498446842142" />
+      <inertia ixx="4.00076216143907E-09" ixy="6.303382641719E-23" ixz="-9.57653989592479E-24" iyy="4.61102404938453E-08" iyz="2.46726229342685E-11" izz="4.79544154880163E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_yaw.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_yaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_index_yaw_joint" type="revolute">
+    <origin xyz="0.0111 0.033249 0.15225" rpy="1.5842 0 1.5708" />
+    <parent link="right_hand_palm" />
+    <child link="right_index_yaw" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.26118" upper="0.26118" effort="1" velocity="2" />
+  </joint>
+  <link name="right_index_mcp">
+    <inertial>
+      <origin xyz="-0.00111234919858527 0.023746901532495 0.0115739649260122" rpy="0 0 0" />
+      <mass value="0.0128247691163396" />
+      <inertia ixx="1.46139438384275E-06" ixy="-1.66361860827506E-07" ixz="5.73065974807899E-08" iyy="7.300179043556E-07" iyz="7.2133053532142E-09" izz="1.8705971687562E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_mcp.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_mcp.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_index_mcp_joint" type="revolute">
+    <origin xyz="0.0114 0 0" rpy="-1.5708 -1.5574 1.5708" />
+    <parent link="right_index_yaw" />
+    <child link="right_index_mcp" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.3089969" effort="1" velocity="2" />
+  </joint>
+  <link name="right_index_pip">
+    <inertial>
+      <origin xyz="-0.00124281020481641 0.0110585126992036 0.00864414647077253" rpy="0 0 0" />
+      <mass value="0.00574474647450532" />
+      <inertia ixx="5.22557555794742E-07" ixy="7.92367963367416E-08" ixz="-2.23189981461978E-10" iyy="4.5230355668029E-07" iyz="2.01137133321695E-09" izz="5.21859623645051E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_pip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_pip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_index_pip_joint" type="revolute">
+    <origin xyz="0.011359 0.042391 0.0029501" rpy="0 0 0" />
+    <parent link="right_index_mcp" />
+    <child link="right_index_pip" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.4835299" effort="1" velocity="2" />
+  </joint>
+  <link name="right_index_dip">
+    <inertial>
+      <origin xyz="0.00237596413821437 0.0152477092114338 0.0081006526983466" rpy="0 0 0" />
+      <mass value="0.00664977322701132" />
+      <inertia ixx="5.7432777486837E-07" ixy="-1.18336349935165E-07" ixz="2.26708126419936E-11" iyy="2.12671040478318E-07" iyz="-2.99084467848709E-11" izz="5.21593055973438E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_dip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_dip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_index_dip_joint" type="revolute">
+    <origin xyz="0 0.018776 0.00035" rpy="0 0 0" />
+    <parent link="right_index_pip" />
+    <child link="right_index_dip" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.568" effort="1" velocity="2" />
+    <mimic joint="right_index_pip_joint" multiplier="1.1232" offset="0" />
+  </joint>
+  <link name="right_index_force_sensor">
+    <inertial>
+      <origin xyz="1.49642217481972E-05 -0.00563259149171179 -0.00559870088324154" rpy="0 0 0" />
+      <mass value="0.000821523436398482" />
+      <inertia ixx="3.90577678193903E-08" ixy="-1.31311102193977E-11" ixz="1.86646337265128E-12" iyy="1.76546078039644E-08" iyz="-9.02500917386249E-09" izz="4.94019728715261E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_force_sensor.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_index_force_sensor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_index_force_sensor_joint" type="fixed">
+    <origin xyz="0.014134 0.029094 0.0080998" rpy="1.887 1.5705 1.9769" />
+    <parent link="right_index_dip" />
+    <child link="right_index_force_sensor" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_middle_yaw">
+    <inertial>
+      <origin xyz="-9.99999999996143E-06 0.00751404171756424 -0.00450041155133524" rpy="0 0 0" />
+      <mass value="0.00153498446842142" />
+      <inertia ixx="4.00076216143907E-09" ixy="6.2122970917543E-23" ixz="-1.18244536311161E-23" iyy="4.61102404938452E-08" iyz="2.46726229342682E-11" izz="4.79544154880162E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_yaw.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_yaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_middle_yaw_joint" type="revolute">
+    <origin xyz="0.0155 0.0075087 0.14468" rpy="1.5842 0 1.5708" />
+    <parent link="right_hand_palm" />
+    <child link="right_middle_yaw" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.26118" upper="0.26118" effort="1" velocity="2" />
+  </joint>
+  <link name="right_middle_mcp">
+    <inertial>
+      <origin xyz="-0.00111234939190872 0.0237469015316156 0.0115739648901726" rpy="0 0 0" />
+      <mass value="0.0128247688513105" />
+      <inertia ixx="1.4613943772144E-06" ixy="-1.66361850716043E-07" ixz="5.73065973186847E-08" iyy="7.30017878245352E-07" iyz="7.21330736189422E-09" izz="1.87059713910244E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_mcp.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_mcp.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_middle_mcp_joint" type="revolute">
+    <origin xyz="0.01139 0.007514 -0.0045004" rpy="-1.5708 -1.5574 1.5708" />
+    <parent link="right_middle_yaw" />
+    <child link="right_middle_mcp" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.3089969" effort="1" velocity="2" />
+  </joint>
+  <link name="right_middle_pip">
+    <inertial>
+      <origin xyz="-0.00124281008473322 0.0110585127564933 0.00864414651481931" rpy="0 0 0" />
+      <mass value="0.00574474642023958" />
+      <inertia ixx="5.22557553399658E-07" ixy="7.92368006906362E-08" ixz="-2.23185927367092E-10" iyy="4.52303547199659E-07" iyz="2.0113727161431E-09" izz="5.2185961247924E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_pip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_pip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_middle_pip_joint" type="revolute">
+    <origin xyz="0.011359 0.042391 0.0029501" rpy="0 0 0" />
+    <parent link="right_middle_mcp" />
+    <child link="right_middle_pip" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.4835299" effort="1" velocity="2" />
+  </joint>
+  <link name="right_middle_dip">
+    <inertial>
+      <origin xyz="0.0024571133458794 0.0159454431470807 0.00810131079028982" rpy="0 0 0" />
+      <mass value="0.00790902629237164" />
+      <inertia ixx="9.6515517374316E-07" ixy="-1.38327023707224E-07" ixz="6.81470429629376E-11" iyy="2.75318569065172E-07" iyz="-2.70098609195649E-11" izz="9.19077164159677E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_dip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_dip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_middle_dip_joint" type="revolute">
+    <origin xyz="0 0.018776 0.00035" rpy="0 0 0" />
+    <parent link="right_middle_pip" />
+    <child link="right_middle_dip" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.568" effort="1" velocity="2" />
+    <mimic joint="right_middle_pip_joint" multiplier="1.1232" offset="0" />
+  </joint>
+  <link name="right_middle_force_sensor">
+    <inertial>
+      <origin xyz="1.49620559511121E-05 -0.00563259174914207 -0.00559870120393801" rpy="0 0 0" />
+      <mass value="0.000821523626721854" />
+      <inertia ixx="3.9057759036268E-08" ixy="-1.31289810413784E-11" ixz="1.86248152887951E-12" iyy="1.7654617304406E-08" iyz="-9.02500539150154E-09" izz="4.94019786976361E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_force_sensor.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_middle_force_sensor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_middle_force_sensor_joint" type="fixed">
+    <origin xyz="0.014553 0.03105 0.0080998" rpy="1.887 1.5705 1.9769" />
+    <parent link="right_middle_dip" />
+    <child link="right_middle_force_sensor" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_ring_mcp">
+    <inertial>
+      <origin xyz="-0.00113237528055357 0.0238703719688609 0.00952607686199634" rpy="0 0 0" />
+      <mass value="0.0126841225581623" />
+      <inertia ixx="1.41417826326796E-06" ixy="-1.666844746193E-07" ixz="5.54064892660323E-08" iyy="7.23300817348625E-07" iyz="8.86433709420519E-09" izz="1.82688743122534E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_ring_mcp.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_ring_mcp.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_ring_mcp_joint" type="revolute">
+    <origin xyz="0.0111 -0.0056513 0.15225" rpy="1.5708 0 0" />
+    <parent link="right_hand_palm" />
+    <child link="right_ring_mcp" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.3089969" effort="1" velocity="2" />
+  </joint>
+  <link name="right_ring_pip">
+    <inertial>
+      <origin xyz="0.00124281044061491 -0.0110585126142759 0.00864414643558225" rpy="0 0 0" />
+      <mass value="0.00574474657698306" />
+      <inertia ixx="5.22557556206245E-07" ixy="7.92367889635411E-08" ixz="2.23194341433631E-10" iyy="4.52303571562805E-07" iyz="-2.01137075433801E-09" izz="5.21859642587957E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_ring_pip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_ring_pip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_ring_pip_joint" type="revolute">
+    <origin xyz="0.011359 0.042391 0.0009001" rpy="0 0 3.1416" />
+    <parent link="right_ring_mcp" />
+    <child link="right_ring_pip" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.4835299" effort="1" velocity="2" />
+  </joint>
+  <link name="right_ring_dip">
+    <inertial>
+      <origin xyz="0.00199307958784926 0.0150615704086284 0.00810244574416518" rpy="0 0 0" />
+      <mass value="0.0075189518145346" />
+      <inertia ixx="6.80977230944785E-07" ixy="-1.14917000909466E-07" ixz="1.99878842848452E-11" iyy="2.4269526773542E-07" iyz="1.11456423272019E-10" izz="6.38483935430501E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_ring_dip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_ring_dip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_ring_dip_joint" type="revolute">
+    <origin xyz="0 -0.018776 0.00035" rpy="0 0 3.1416" />
+    <parent link="right_ring_pip" />
+    <child link="right_ring_dip" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.568" effort="1" velocity="2" />
+    <mimic joint="right_ring_pip_joint" multiplier="1.1232" offset="0" />
+  </joint>
+  <link name="right_ring_force_sensor">
+    <inertial>
+      <origin xyz="1.49604106909756E-05 -0.00563259267736232 -0.00559870154157535" rpy="0 0 0" />
+      <mass value="0.000821523768394372" />
+      <inertia ixx="3.90577638312536E-08" ixy="-1.31350807594959E-11" ixz="1.86005733471146E-12" iyy="1.76546236354017E-08" iyz="-9.02500811766508E-09" izz="4.94019884427841E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_ring_force_sensor.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_ring_force_sensor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_ring_force_sensor_joint" type="fixed">
+    <origin xyz="0.014134 0.029094 0.0080998" rpy="1.887 1.5705 1.9769" />
+    <parent link="right_ring_dip" />
+    <child link="right_ring_force_sensor" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_pinky_mcp">
+    <inertial>
+      <origin xyz="-0.00113237517036673 0.0238703719654643 0.00952607690021043" rpy="0 0 0" />
+      <mass value="0.012684122738921" />
+      <inertia ixx="1.41417828556163E-06" ixy="-1.66684472491451E-07" ixz="5.54064935655704E-08" iyy="7.23300824981208E-07" iyz="8.86434833949928E-09" izz="1.82688746134013E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_pinky_mcp.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_pinky_mcp.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_pinky_mcp_joint" type="revolute">
+    <origin xyz="0.0111 -0.027151 0.15225" rpy="1.5708 0 0" />
+    <parent link="right_hand_palm" />
+    <child link="right_pinky_mcp" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.3089969" effort="1" velocity="2" />
+  </joint>
+  <link name="right_pinky_pip">
+    <inertial>
+      <origin xyz="-0.00124281020514839 0.0110585126995084 0.00864414647075187" rpy="0 0 0" />
+      <mass value="0.00574474647431049" />
+      <inertia ixx="5.22557555817309E-07" ixy="7.92367963163774E-08" ixz="-2.23189964081961E-10" iyy="4.52303556688054E-07" iyz="2.0113713306541E-09" izz="5.2185962360005E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_pinky_pip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_pinky_pip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_pinky_pip_joint" type="revolute">
+    <origin xyz="0.011359 0.042391 0.0009001" rpy="0 0 0" />
+    <parent link="right_pinky_mcp" />
+    <child link="right_pinky_pip" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.4835299" effort="1" velocity="2" />
+  </joint>
+  <link name="right_pinky_dip">
+    <inertial>
+      <origin xyz="0.00222557357243311 0.0149284752462205 0.008099201538517" rpy="0 0 0" />
+      <mass value="0.00639879074245339" />
+      <inertia ixx="7.46378838867789E-07" ixy="-1.04535574404796E-07" ixz="1.57798577670713E-11" iyy="2.10978956906071E-07" iyz="-4.53277881428032E-11" izz="7.03064825118522E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_pinky_dip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_pinky_dip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_pinky_dip_joint" type="revolute">
+    <origin xyz="0 0.018776 0.00035" rpy="0 0 0" />
+    <parent link="right_pinky_pip" />
+    <child link="right_pinky_dip" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1.568" effort="1" velocity="2" />
+    <mimic joint="right_pinky_pip_joint" multiplier="1.1232" offset="0" />
+  </joint>
+  <link name="right_pinky_force_sensor">
+    <inertial>
+      <origin xyz="1.49663808898248E-05 -0.0056325931116241 -0.00559870269920084" rpy="0 0 0" />
+      <mass value="0.000821523064299604" />
+      <inertia ixx="3.90577676106066E-08" ixy="-1.31345193548868E-11" ixz="1.86195183857191E-12" iyy="1.76546016825123E-08" iyz="-9.02500802260373E-09" izz="4.9401966554457E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_pinky_force_sensor.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_pinky_force_sensor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_pinky_force_sensor_joint" type="fixed">
+    <origin xyz="0.013925 0.028117 0.0080998" rpy="1.887 1.5705 1.9769" />
+    <parent link="right_pinky_dip" />
+    <child link="right_pinky_force_sensor" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_palm_force_sensor">
+    <inertial>
+      <origin xyz="0.000380261192012392 0.00147915092716762 -0.00345600892819492" rpy="0 0 0" />
+      <mass value="0.00510273517281155" />
+      <inertia ixx="4.17831133657834E-07" ixy="-2.11883543536805E-08" ixz="9.21527950541965E-09" iyy="1.54124870129943E-06" iyz="9.85909744226522E-09" izz="1.92333269744531E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_palm_force_sensor.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.25 0.25 0.25 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_palm_force_sensor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_palm_force_sensor_joint" type="fixed">
+    <origin xyz="0.021234 0.0001482 0.1121" rpy="1.5316 -0.0039142 1.5709" />
+    <parent link="right_hand_palm" />
+    <child link="right_palm_force_sensor" />
+    <axis xyz="0 0 0" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="right_hand_casing">
+    <inertial>
+      <origin xyz="-0.0146497431487888 5.71244872097157E-05 0.064455836781081" rpy="0 0 0" />
+      <mass value="0.0216316636341055" />
+      <inertia ixx="5.11687593124072E-05" ixy="9.93725728352238E-08" ixz="-1.93800589384209E-06" iyy="3.14212512089774E-05" iyz="1.87882390177664E-07" izz="2.35188945509006E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_hand_casing.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/right_hand_casing.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hand_casing_joint" type="fixed">
+    <origin xyz="0 0 0.03" rpy="0 0 0" />
+    <parent link="right_hand_palm" />
+    <child link="right_hand_casing" />
+    <axis xyz="0 0 0" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+  </joint>
+</robot>

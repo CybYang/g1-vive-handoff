@@ -1,0 +1,47 @@
+retargeting:
+  type: vector
+  urdf_path: ../../../custom_assets/inspire_g2_hand/inspire_g2_hand_left.urdf
+
+  target_joint_names:
+    - left_thumb_yaw_joint
+    - left_thumb_mcp_joint
+    - left_thumb_dip_joint
+    - left_index_yaw_joint
+    - left_index_mcp_joint
+    - left_index_pip_joint
+    - left_middle_yaw_joint
+    - left_middle_mcp_joint
+    - left_middle_pip_joint
+    - left_ring_mcp_joint
+    - left_ring_pip_joint
+    - left_pinky_mcp_joint
+    - left_pinky_pip_joint
+
+  target_origin_link_names:
+    - left_hand_palm
+    - left_hand_palm
+    - left_hand_palm
+    - left_hand_palm
+    - left_hand_palm
+    - left_hand_palm
+    - left_hand_palm
+    - left_hand_palm
+    - left_hand_palm
+    - left_hand_palm
+  target_task_link_names:
+    - left_thumb_force_sensor
+    - left_index_force_sensor
+    - left_middle_force_sensor
+    - left_ring_force_sensor
+    - left_pinky_force_sensor
+    - left_thumb_mcp
+    - left_index_pip
+    - left_middle_pip
+    - left_ring_pip
+    - left_pinky_pip
+  target_link_human_indices:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [4, 8, 12, 16, 20, 2, 6, 10, 14, 18]
+
+  scaling_factor: 1.15
+  low_pass_alpha: 0.2

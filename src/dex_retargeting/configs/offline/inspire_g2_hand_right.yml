@@ -1,0 +1,29 @@
+retargeting:
+  type: position
+  urdf_path: ../../../custom_assets/inspire_g2_hand/inspire_g2_hand_right.urdf
+
+  target_joint_names:
+    - right_thumb_yaw_joint
+    - right_thumb_mcp_joint
+    - right_thumb_dip_joint
+    - right_index_yaw_joint
+    - right_index_mcp_joint
+    - right_index_pip_joint
+    - right_middle_yaw_joint
+    - right_middle_mcp_joint
+    - right_middle_pip_joint
+    - right_ring_mcp_joint
+    - right_ring_pip_joint
+    - right_pinky_mcp_joint
+    - right_pinky_pip_joint
+  target_link_names:
+    - right_thumb_force_sensor
+    - right_index_force_sensor
+    - right_middle_force_sensor
+    - right_ring_force_sensor
+    - right_pinky_force_sensor
+  target_link_human_indices: [4, 8, 12, 16, 20]
+
+  add_dummy_free_joint: true
+  low_pass_alpha: 1
+  ignore_mimic_joint: false

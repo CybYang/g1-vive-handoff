@@ -1,0 +1,31 @@
+retargeting:
+  type: DexPilot
+  urdf_path: ../../../custom_assets/inspire_g2_hand/inspire_g2_hand_left.urdf
+
+  target_joint_names:
+    - left_thumb_yaw_joint
+    - left_thumb_mcp_joint
+    - left_thumb_dip_joint
+    - left_index_yaw_joint
+    - left_index_mcp_joint
+    - left_index_pip_joint
+    - left_middle_yaw_joint
+    - left_middle_mcp_joint
+    - left_middle_pip_joint
+    - left_ring_mcp_joint
+    - left_ring_pip_joint
+    - left_pinky_mcp_joint
+    - left_pinky_pip_joint
+  # OpenXR task vectors start at the wrist. The vendor left URDF offsets
+  # left_hand_palm by 29.5 mm, while the mirrored right palm/base origins
+  # coincide, so left_hand_base is the mirror-consistent task origin.
+  wrist_link_name: left_hand_base
+  finger_tip_link_names:
+    - left_thumb_force_sensor
+    - left_index_force_sensor
+    - left_middle_force_sensor
+    - left_ring_force_sensor
+    - left_pinky_force_sensor
+
+  scaling_factor: 1.15
+  low_pass_alpha: 0.2

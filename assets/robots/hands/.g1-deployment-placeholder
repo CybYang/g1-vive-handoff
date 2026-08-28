@@ -1,0 +1,6 @@
+This directory is intentionally retained in the G1 deployment package.
+
+The inherited DexRetargeting configuration resolves the Inspire G2 URDF path
+relative to this directory and reaches custom_assets/inspire_g2_hand.  The G1
+runtime does not need the upstream visualization assets that normally live
+here.

@@ -1,0 +1,64 @@
+# Nominal mapping from the mirrored right-hand URDF coordinates (radians) to
+# the RH5DG2 angleSet register (0.1 degree).
+#
+# The URDF joint axes are mirrored, so positive flexion/yaw coordinates retain
+# the same semantic meaning as the left-hand model.  The numerical endpoints
+# therefore start from the verified left-hand mapping and the right URDF limits.
+# They are NOT a substitute for the first right-hand hardware checkout: verify
+# every motor direction with a small max-step value before live retargeting,
+# then add measured intermediate anchors here if the physical response differs.
+hardware_order:
+  - pinky_mcp
+  - ring_mcp
+  - middle_mcp
+  - middle_yaw
+  - index_mcp
+  - index_yaw
+  - pinky_pip
+  - ring_pip
+  - middle_pip
+  - index_pip
+  - thumb_yaw
+  - thumb_mcp
+  - thumb_dip
+
+joints:
+  pinky_mcp:
+    urdf_joint: right_pinky_mcp_joint
+    anchors: [[0.0, 1800], [1.3089969, 965]]
+  ring_mcp:
+    urdf_joint: right_ring_mcp_joint
+    anchors: [[0.0, 1800], [1.3089969, 965]]
+  middle_mcp:
+    urdf_joint: right_middle_mcp_joint
+    anchors: [[0.0, 1800], [1.3089969, 965]]
+  middle_yaw:
+    urdf_joint: right_middle_yaw_joint
+    anchors: [[-0.26118, -150], [0.26118, 150]]
+  index_mcp:
+    urdf_joint: right_index_mcp_joint
+    anchors: [[0.0, 1800], [1.3089969, 965]]
+  index_yaw:
+    urdf_joint: right_index_yaw_joint
+    anchors: [[-0.26118, -150], [0.26118, 150]]
+  pinky_pip:
+    urdf_joint: right_pinky_pip_joint
+    anchors: [[0.0, 1850], [1.4835299, 1050]]
+  ring_pip:
+    urdf_joint: right_ring_pip_joint
+    anchors: [[0.0, 1850], [1.4835299, 1050]]
+  middle_pip:
+    urdf_joint: right_middle_pip_joint
+    anchors: [[0.0, 1850], [1.4835299, 1050]]
+  index_pip:
+    urdf_joint: right_index_pip_joint
+    anchors: [[0.0, 1850], [1.4835299, 1050]]
+  thumb_yaw:
+    urdf_joint: right_thumb_yaw_joint
+    anchors: [[0.0, 1700], [1.9198622, 600]]
+  thumb_mcp:
+    urdf_joint: right_thumb_mcp_joint
+    anchors: [[0.0, 1550], [0.6108652, 1000]]
+  thumb_dip:
+    urdf_joint: right_thumb_dip_joint
+    anchors: [[0.0, 2040], [0.9424778, 1450]]
